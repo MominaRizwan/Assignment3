@@ -1,0 +1,19 @@
+version: "3.8" 
+services:
+  backend:
+    container_name: backend_ci_container_v2
+    build:
+      context: ./backend
+    ports:
+      - "3001:4000"
+  
+  frontend:
+    container_name: frontend_ci_container_v2
+    build:
+      context: ./frontend
+    ports:
+      - "5273:5173"
+    
+    depends_on:
+      - backend
+    
